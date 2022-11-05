@@ -1,0 +1,70 @@
+/*
+OBSのブラウザソースは、「Discord StreamKit Overlay」の"VOICE WIDGET"で取得したURLを入力してください。
+参照: https://streamkit.discord.com/overlay
+author: 🍙
+*/
+
+/*
+以下で指定したユーザ以外の画像を非表示にする
+discordでユーザーのIDをコピーして以下のdata-reactidを置換
+*/
+li.voice-state:not([data-reactid*="123123123123123"]) { display:none; }
+
+/* 喋っていない時のアバター設定*/
+.avatar {
+    /* 表示される画像を設定 */
+    content:url(
+        https://cdn.discordapp.com/attachments/989399572478574664/1034306344007770232/onigirikun_a.png
+    );
+    /* 縦横サイズ */
+    height:auto !important;
+    width:95% !important;
+    border-radius:0 !important;
+    /*明るさを設定 */
+    filter: brightness(50%);
+}
+
+/*喋った時のアバター設定*/
+.speaking {
+    /* 枠を消す */
+    border-color:rgba(0,0,0,0) !important;
+    position:relative;
+    /* アニメーションに命名 */
+    animation-name: speak-now;
+    animation-duration: 5000ms;
+    animation-fill-mode:forwards;
+    /*明るさを設定 */
+    filter: brightness(100%) ;
+}
+
+/*喋っているときにぴょんぴょん跳ねる設定*/
+/*「px」か「％」で跳ね方を調整*/
+@keyframes speak-now {
+    0% { bottom:0px; }
+    5% { bottom:75%; }
+    10% { bottom:0px; }
+    15% { bottom:75%; }
+    20% { bottom:0px; }
+    25% { bottom:75%; }
+    30% { bottom:0px; }
+    35% { bottom:75%; }
+    40% { bottom:0px; }
+    45% { bottom:75%; }
+    50% { bottom:0px; }
+    55% { bottom:75%; }
+    60% { bottom:0px; }
+    65% { bottom:75%; }
+    70% { bottom:0px; }
+    75% { bottom:75%; }
+    80% { bottom:0px; }
+    85% { bottom:75%; }
+    90% { bottom:0px; }
+    95% { bottom:75%; }
+    100% { bottom:0px; }
+}
+
+/* アバター及びネームタグ表示位置調整、ここでは非表示*/
+li.voice-state{ position: static; text-align: center;}
+div.user{ display: none; }
+/* 色々消すヤツ */
+body { background-color: rgba(0, 0, 0, 0); overflow: hidden; }
