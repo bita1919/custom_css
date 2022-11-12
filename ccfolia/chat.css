@@ -1,11 +1,17 @@
-
+/*
+target: ccfolia v1.23.3
+OBSのブラウザソースに以下のURLを入れてください。
+{ルームID}は各自、該当のルームのIDに置換すること。
+URL: https://ccfolia.com/rooms/{ルームID}/chat
+author: 🍙
+*/
 :root {
-  --background-color: rgb(0, 0, 0);
-  --background-padding: 8px 8px 8px 8px;
-  --border-color: rgb(255, 255, 255);
+  --background-color: rgba(0, 0, 0, 0.8);
+  --background-padding: 5px;
+  --border-color: rgba(255, 255, 255, 0.85);
   --border-image: url();
   --border-width: 2px;
-  --border-radius: 0px;
+  --border-radius: 20px;
   --border-shadow: 0;
   --font-color: rgb(255, 255, 255);
   --font-color-shadow: 0;
@@ -13,32 +19,51 @@
   --font-color-fail-shadow: 0;
   --font-color-success: rgb(33, 150, 243);
   --font-color-success-shadow: 0;
-  --font-size: 1.5rem;
+  --font-size: 1.1rem;
   --font-shadow: 0;
   --image-radius: 0%;
   --width: 100%;
   --line-clamp: 30;
+  /* --chat-div-padding-bottom: 4rem; */
 }
 
 /**************************
-各種調整
+取得件数
+**************************/
+.MuiList-root>div:nth-child(1)>div>div>div:nth-last-child(-n+5) {
+  display: block !important;
+}
+.MuiList-root>div:nth-child(1)>div>div>div {
+  display: none;
+}
+
+/**************************
+不要な要素を除去
 **************************/
 /* OBS */
 body {
   background-color: rgba(0, 0, 0, 0);
   margin: 0px auto;
   overflow: hidden;
-/*   visibility: hidden; */
-}
-
-/* タブ領域 */
-.MuiPaper-elevation1
-{
   visibility: hidden;
 }
+/* タブ */
+/* .MuiPaper-elevation1{visibility: visible;} */
 
-/* アニメーション設定 */
+/* 入力欄削除 */
+form > div,
+/* ヘッダー削除 */
+header>.MuiToolbar-gutters,
+/* スクロールバー削除 */
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+/**************************
+アニメーション設定
+**************************/
 .MuiListItem-alignItemsFlexStart{
+  visibility: visible;
   animation:
   /* 今はフェードインのみ */
   fadeIn  2s ease 0s;
@@ -66,37 +91,9 @@ body {
   }
 }
 
-.MuiList-root>div:nth-child(1)>div>div>div:nth-last-child(-n+5) {
-  display: block !important;
-}
-/* 入力欄 */
-form > div,
-/* モーダル削除 */
-[role="presentation"],
-/* ヘッダー削除 */
-header>.MuiToolbar-gutters,
-
-/* スクロールバー */
-::-webkit-scrollbar {
-  display: none !important;
-}
-
 /**************************
 デザイン
 **************************/
-/* わからん */
-.MuiDrawer-root>.MuiPaper-root {
-  width: 100%;
-}
-/* わからん */
-hr {
-  display: none;
-}
-/* わからん */
-.MuiDrawer-paperAnchorDockedRight {
-  border: none;
-}
-
 /* メッセージの枠のデザイン */
 .MuiListItem-root {
   padding: var(--background-padding);
@@ -113,7 +110,7 @@ hr {
   margin-bottom: 20;
 }
 
-/* アイコンのマージン */
+/* アイコン周りの余白 */
 .MuiListItemAvatar-alignItemsFlexStart {
   margin: 0px;
 }
@@ -123,7 +120,7 @@ hr {
   border-radius: var(--image-radius);
 }
 
-/* メッセージ領域の背景色 */
+/* 背景色 */
 .MuiPaper-root {
   background-color: #ff000000;
 }
@@ -133,47 +130,13 @@ hr {
   font-size: var(--font-size);
 }
 
-/* メッセージウインドウのの広さ？ */
-.MuiList-root>div:nth-child(1)>div>div {
-  height: 50vh !important;
-}
-
-/* メッセージのdivに何かしてる */
-.MuiList-root>div:nth-child(1)>div>div>div {
-  display: none;
-  /*  この下いらない？  */
-  height: auto !important;
-  min-height: auto !important;
-  width: var(--width) !important;
-  position: absolute !important;
-  flex-shrink: 0;
-}
-
-/* わからん */
-.MuiListItemText-root {
-  overflow: hidden;
-}
-
-/* 件名とテキストになにかしてる*/
-p.MuiTypography-root,
+/* 件名のフォントを揃える*/
 .MuiTypography-colorTextSecondary {
   color: var(--font-color);
   text-shadow: var(--font-color-shadow);  
 }
 
-/* わからん */
-p.MuiTypography-root {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: var(--line-clamp);
-}
-
-/* 成功と失敗の何か？ */
-.MuiTypography-colorPrimary {
-  color: var(--font-color-success);
-  text-shadow: var(--font-color-success-shadow);
-}
-.MuiTypography-colorSecondary {
-  color: var(--font-color-fail);
-  text-shadow: var(--font-color-fail-shadow);
+/* 新着メッセージが微妙にスクロールしきれていない対策 */
+.MuiList-root>div:nth-child(1)>div>div {
+  height: 50vh !important;
 }
