@@ -8,12 +8,12 @@ author: 🍙
 :root {
   --background-color: rgba(0, 0, 0, 0.8);
   --background-padding: 5px;
-  --border-color: rgba(255, 255, 255, 0.85);
+  --border-color: rgb(132, 145, 195);
   --border-image: url();
   --border-width: 2px;
-  --border-radius: 20px;
+  --border-radius: 10px;
   --border-shadow: 0;
-  --font-color: rgb(255, 255, 255);
+  --font-color: rgb(224, 224, 236);
   --font-color-shadow: 0;
   --font-color-fail: rgb(245, 0, 87);
   --font-color-fail-shadow: 0;
@@ -24,7 +24,6 @@ author: 🍙
   --image-radius: 0%;
   --width: 100%;
   --line-clamp: 30;
-  /* --chat-div-padding-bottom: 4rem; */
 }
 
 /**************************
@@ -65,12 +64,12 @@ header>.MuiToolbar-gutters,
 .MuiListItem-alignItemsFlexStart{
   visibility: visible;
   animation:
-  /* 今はフェードインのみ */
-  fadeIn  2s ease 0s;
+  /* フェードインのみ */
+  /* fadeIn  2s ease 0s; */
 
-  /* こっちでフェードアウトも有効 */
-  /* fadeIn  2s ease 0s;
-  fadeOut 2s ease 8s forwards; */
+  /* フェードアウト有効 */
+  fadeIn  2s ease 0s,
+  fadeOut 2s ease 8s forwards;
   }
 @keyframes fadeIn {
   from {
