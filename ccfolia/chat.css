@@ -21,12 +21,6 @@
 }
 
 /**************************
-表示用CSS
-.MuiList-root>div:nth-child(1)>div>div>div:nth-last-child(-n+3) {
-display: block !important;
-}
-**************************/
-/**************************
 各種調整
 **************************/
 /* OBS */
@@ -37,16 +31,21 @@ body {
 /*   visibility: hidden; */
 }
 
-
-/* MuiPaper-root sc-iTONeN jaRgTS MuiPaper-elevation1 */
-/* タブのとこ */
+/* タブ領域 */
 .MuiPaper-elevation1
 {
-/*     visibility: hidden; */
+  visibility: hidden;
 }
+
+/* アニメーション設定 */
 .MuiListItem-alignItemsFlexStart{
   animation:
+  /* 今はフェードインのみ */
   fadeIn  2s ease 0s;
+
+  /* こっちでフェードアウトも有効 */
+  /* fadeIn  2s ease 0s;
+  fadeOut 2s ease 8s forwards; */
   }
 @keyframes fadeIn {
   from {
@@ -58,6 +57,15 @@ body {
     transform: translateX(0);
   }
 }
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .MuiList-root>div:nth-child(1)>div>div>div:nth-last-child(-n+5) {
   display: block !important;
 }
