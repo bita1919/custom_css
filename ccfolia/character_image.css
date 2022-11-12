@@ -1,0 +1,26 @@
+/* ステータスバー */
+body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }
+#root{margin:auto;}
+
+/* ステータスバー */
+.sc-bxSTMQ,
+/* イニシアチブ表示 */
+.MuiBadge-badge,
+.MuiBadge-anchorOriginTopRightRectangle,
+.MuiBadge-colorSecondary
+{display: none;}
+
+/* アイコン表示領域 */
+.jwEgKW{
+    width: 200px;
+    height: 200px;
+    background:none;
+    border:none;
+}
+.MuiButtonBase-root{
+    background-color:none;
+}
+/* 縦長の立ち絵でも顔が表示されるようにする */
+.MuiAvatar-root{
+    display: inline;
+}
