@@ -1,0 +1,145 @@
+
+/*
+target: ccfolia v1.23.3
+OBSのブラウザソースに以下のURLを入れてください。
+{ルームID}は各自、該当のルームのIDに置換すること。
+URL: https://ccfolia.com/rooms/{ルームID}/chat
+author: 🍙
+*/
+
+:root {
+  --background-color: rgb(129, 219, 71);
+  --background-padding: 8px 24px 8px 24px;
+  --border-color: rgb(0, 0, 0);
+  --border-image: url();
+  --border-width: 0px;
+  --border-radius: 50px;
+  --border-shadow: 0;
+  --font-color: rgb(48, 40, 51);
+  --font-color-shadow: 0;
+  --font-color-fail: rgb(173, 0, 45);
+  --font-color-fail-shadow: 0;
+  --font-color-success: rgb(34, 75, 143);
+  --font-color-success-shadow: 0;
+  --font-size: 1.1rem;
+  --font-shadow: 0;
+  --image-radius: 0%;
+  --width: 100%;
+  --line-clamp: 30;
+} 
+
+
+
+/**************************
+取得件数
+**************************/
+.MuiList-root>div:nth-child(1)>div>div>div:nth-last-child(-n+4) {
+  display: block !important;
+}
+.MuiList-root>div:nth-child(1)>div>div>div {
+  display: none;
+}
+
+/**************************
+不要な要素を除去
+**************************/
+/* OBS */
+body {
+  background-color: rgba(0, 0, 0, 0);
+  margin: 0px auto;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* タブ */
+.MuiPaper-elevation1{visibility: visible;}
+
+/* 入力欄削除 */
+form > div,
+/* ヘッダー削除 */
+header>.MuiToolbar-gutters,
+/* スクロールバー削除 */
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+/**************************
+アニメーション設定
+**************************/
+.MuiListItem-alignItemsFlexStart{
+  visibility: visible;
+  animation:
+  /* フェードインのみ */
+  /* fadeIn  2s ease 0s; */
+
+  /* フェードアウト有効 */
+  fadeIn  2s ease 0s,
+  fadeOut 2s ease 8s forwards;
+  }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/**************************
+デザイン
+**************************/
+/* メッセージの枠のデザイン */
+.MuiListItem-root {
+  padding: var(--background-padding);
+  background: var(--background-color);
+  border: solid var(--border-width) var(--border-color);
+  border-radius: var(--border-radius);
+  border-image: var(--border-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-sizing: border-box;
+  box-shadow: var(--border-shadow);
+  align-items: center;
+  margin-bottom: 20;
+}
+
+/* アイコン周りの余白 */
+.MuiListItemAvatar-alignItemsFlexStart {
+  margin: 0px;
+}
+/* アイコンの背景色 */
+.MuiListItemAvatar-root>div {
+  background: #0000008a;
+  border-radius: var(--image-radius);
+}
+
+/* 背景色 */
+.MuiPaper-root {
+  background-color: #ff000000;
+}
+
+/* メッセージのフォントサイズ */
+.MuiTypography-body2 {
+  font-size: var(--font-size);
+}
+
+/* 件名のフォントを揃える*/
+.MuiTypography-colorTextSecondary {
+  color: var(--font-color);
+  text-shadow: var(--font-color-shadow);  
+}
+
+/* 新着メッセージが微妙にスクロールしきれていない対策 */
+.MuiList-root>div:nth-child(1)>div>div {
+  height: 50vh !important;
+}
