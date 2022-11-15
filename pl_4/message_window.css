@@ -1,0 +1,49 @@
+/* 
+メッセージウィンドウとダイスを表示
+キャラ絵とアイコンは非表示
+
+target: ccfolia v1.23.3
+OBSのブラウザソースに以下のURLを入れてください。
+{ルームID}は各自、該当のルームのIDに置換すること。
+URL: https://ccfolia.com/rooms/{ルームID}
+author: 🍙
+*/
+
+body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; visibility: hidden; }
+/* スクロールバーを非表示（!importantは優先度上げの命令） */
+::-webkit-scrollbar {display: none !important;}
+
+.sc-djUGQo {
+  visibility: visible;
+  /* 透過 */
+  /* background-color: transparent; */
+}
+
+/* メッセージウィンドウの影を消す */
+.MuiPaper-elevation1 {
+  box-shadow: none;
+}
+
+/* アイコン */
+.MuiPaper-root>img {
+  width: 139px;
+  height: 139px;
+  /* margin-bottom: 5px; */
+  bottom:-0%;
+  background: #b8b8b8;
+  border-radius: 10%;
+  border: solid 2px #302833;
+  object-fit: cover;
+  object-position: top;
+  left: -145px;
+}
+
+/* ダイスのサイズ */
+.dPdkwb,.dKRmFm {
+  width: 30px;
+  height: 30px;
+}
+/* ダイスを消す */
+/* .cpRwfx {
+  display: none;
+} */
